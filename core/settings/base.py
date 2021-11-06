@@ -49,11 +49,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Third-party apps
     'rest_framework',  # Django REST Framework
+    'rest_framework.authtoken',  # dj-rest-auth authtoken
     'django_filters',  # django-filter
     'rest_framework_simplejwt',  # Simple JWT
+    'dj_rest_auth',  # dj-rest-auth
+
+    # django-allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
     # Local apps
     'accounts',
