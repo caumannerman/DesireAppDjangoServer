@@ -30,6 +30,16 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Replace default user model
+
+AUTH_USER_MODEL = 'accounts.User'
+
+# 사이트 ID 부여
+# 하나의 사이트에서 여러 domain을 가질 수 있는 기능인데,
+# 한 개의 사이트만 운영할 것이기 때문에 사이트 ID를 강제로 지정
+SITE_ID = 1
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,7 +56,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',  # Simple JWT
 
     # Local apps
-
+    'accounts',
 ]
 
 MIDDLEWARE = [
