@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+from core.settings.conf.django_rest_auth import *
+from core.settings.conf.rest_framework import *
+from core.settings.conf.simple_jwt import *
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,6 +32,16 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Replace default user model
+
+AUTH_USER_MODEL = 'accounts.User'
+
+# 사이트 ID 부여
+# 하나의 사이트에서 여러 domain을 가질 수 있는 기능인데,
+# 한 개의 사이트만 운영할 것이기 때문에 사이트 ID를 강제로 지정
+SITE_ID = 1
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,13 +51,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Third-party apps
     'rest_framework',  # Django REST Framework
+    'rest_framework.authtoken',  # dj-rest-auth authtoken
     'django_filters',  # django-filter
+    'rest_framework_simplejwt',  # Simple JWT
+    'dj_rest_auth',  # dj-rest-auth
+
+    # django-allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
 
     # Local apps
-
+    'accounts',
 ]
 
 MIDDLEWARE = [
