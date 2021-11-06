@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+from core.settings.conf.django_rest_auth import *
 from core.settings.conf.rest_framework import *
+from core.settings.conf.simple_jwt import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -62,6 +64,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'dj_rest_auth.registration',
 
     # Local apps
     'accounts',

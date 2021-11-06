@@ -27,4 +27,8 @@ urlpatterns = [
     # API
     path('api/v1/auth/', include('auth.urls')),
     path('api/v1/users/', include('accounts.urls')),
+
+    # # django-rest-auth
+    # path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    # path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
 ]
