@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # Third-party apps
     'rest_framework',  # Django REST Framework
     'django_filters',  # django-filter
+    'rest_framework_simplejwt',  # Simple JWT
 
     # Local apps
 
