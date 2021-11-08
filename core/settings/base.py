@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'accounts',
     'questions',
     'answers',
+    'answer_evaluations',
 ]
 
 MIDDLEWARE = [
