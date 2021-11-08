@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilter, OrderingFilter
-from .models import Question
-from .serializers import QuestionSerializer
 from rest_framework import viewsets
+from rest_framework.filters import SearchFilter, OrderingFilter
 
-# Create your views here.
+from questions.models import Question
+from questions.serializers import QuestionSerializer
+
+
 class QuestionViewSet(viewsets.ModelViewSet):
     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter,)
     search_fields = ()

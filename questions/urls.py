@@ -1,6 +1,7 @@
 from django.urls import path, include
-from .views import QuestionViewSet
 from rest_framework.routers import DefaultRouter
+
+from questions.views import QuestionViewSet
 
 
 app_name = 'questions'
@@ -10,10 +11,3 @@ router.register(r'', QuestionViewSet)
 
 urlpatterns = [
 ] + router.urls
-
-
-
-
-
-
-
