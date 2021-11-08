@@ -68,9 +68,8 @@ INSTALLED_APPS = [
 
     # Local apps
     'accounts',
-
-    #questions
-    'questions'
+    'questions',
+    'answers',
 ]
 
 MIDDLEWARE = [
