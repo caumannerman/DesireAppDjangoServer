@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-=rz$ep--$+l0*6g!3+w)jl&&0c&r3c@hcj!sq-1%m9c^%93@=u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Replace default user model
@@ -68,6 +68,9 @@ INSTALLED_APPS = [
 
     # Local apps
     'accounts',
+
+    #questions
+    'questions'
 ]
 
 MIDDLEWARE = [
