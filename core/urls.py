@@ -33,6 +33,11 @@ urlpatterns = [
     path('api/v1/answer-evaluations/', include('answer_evaluations.urls')),
     path('api/v1/chat-rooms/', include('chatrooms.urls')),
     path('api/v1/chat-messages/', include('chatmessages.urls')),
+    path('api/v1/uploaded-audios/', include('uploads.audios.urls')),
+    path('api/v1/uploaded-images/', include('uploads.images.urls')),
+    path('api/v1/uploaded-files', include('uploads.files.urls')),
+    path('api/v1/uploaded-videos/', include('uploads.videos.urls')),
+
     # # django-rest-auth
     # path('dj-rest-auth/', include('dj_rest_auth.urls')),
     # path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
