@@ -11,7 +11,7 @@ class ChatRoomViewSet(viewsets.ModelViewSet):
     queryset = ChatRoom.objects.all()
     serializer_class = ChatRoomSerializer
     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter,)
-    filter_fields = ['user__id', 'question__id']
+    filter_fields = ['sender__id', 'recipient__id']
     search_fields = []
     ordering_fields = ['created_on']
     permission_classes = [OwnerPermission]
