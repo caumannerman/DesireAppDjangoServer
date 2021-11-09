@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'answer_evaluations',
     'chatrooms',
     'chatmessages',
+    'uploads',
 ]
 
 MIDDLEWARE = [
