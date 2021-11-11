@@ -4,6 +4,15 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 from django.utils.translation import gettext as _
 
+from design_fields.models import DesignField
+from design_fields.user_design_fields.models import UserDesignField
+from uploads.utils import get_uploaded_file_path
+
+
+class AccountType(models.TextChoices):
+    ME = 'ME', _('Mentee')
+    MO = 'MO', _('Mentor')
+
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email,
@@ -52,9 +61,16 @@ class User(AbstractUser):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField('이메일', unique=True)  # Set unique email
-    password = models.CharField('비밀번호', max_length=128, blank=True)
+    password = models.CharField('비밀번호', max_length=128, blank=True, null=True)
     first_name = models.CharField('이름', max_length=30)
     last_name = models.CharField('성', max_length=30)
+    nickname = models.CharField('닉네임', max_length=30)
+    profile_image = models.ImageField(
+        upload_to=get_uploaded_file_path, blank=True)
+    acc_type = models.CharField(
+        '계정 유형', choices=AccountType.choices, default=AccountType.ME, max_length=30)
+    design_fields = models.ManyToManyField(
+        DesignField, through=UserDesignField)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

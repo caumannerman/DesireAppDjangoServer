@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'chatrooms',
     'chatmessages',
     'uploads',
+    'design_fields',
 ]
 
 MIDDLEWARE = [
