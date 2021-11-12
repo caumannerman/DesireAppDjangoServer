@@ -23,6 +23,6 @@ class QuestionViewSet(viewsets.ModelViewSet):
     serializer_class = QuestionSerializer
     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter,)
     filterset_class = QuestionFilter
-    search_fields = []
+    search_fields = ['title', 'question_text', ]
     ordering_fields = ['created_on', ]
     permission_classes = [OwnerPermission]
