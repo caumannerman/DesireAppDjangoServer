@@ -35,7 +35,7 @@ urlpatterns = [
     path('api/v1/chat-messages/', include('chatmessages.urls')),
     path('api/v1/uploaded-audios/', include('uploads.audios.urls')),
     path('api/v1/uploaded-images/', include('uploads.images.urls')),
-    path('api/v1/uploaded-files', include('uploads.files.urls')),
+    path('api/v1/uploaded-files/', include('uploads.files.urls')),
     path('api/v1/uploaded-videos/', include('uploads.videos.urls')),
 
     # # django-rest-auth
