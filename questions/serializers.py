@@ -8,11 +8,13 @@ from questions.models import Question
 class QuestionSerializer(serializers.ModelSerializer):
     categories = DesignFieldSerializer(
         many=True, queryset=DesignField.objects.filter())
+    answer_count = serializers.IntegerField(
+        source='answer_set.count', read_only=True)
 
     class Meta:
         model = Question
         fields = ['id', 'user', 'title', 'question_text',
-                  'categories', 'created_on', 'updated_on']
+                  'categories', 'answer_count', 'created_on', 'updated_on']
 
     def create(self, validated_data):
         categories_data = []
