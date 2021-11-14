@@ -1,11 +1,13 @@
 from rest_framework import serializers
 
+from accounts.serializers import UserSerializer
 from design_fields.models import DesignField
 from design_fields.serializers import DesignFieldSerializer
 from questions.models import Question
 
 
-class QuestionSerializer(serializers.ModelSerializer):
+class QuestionListRetrieveSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
     categories = DesignFieldSerializer(
         many=True, queryset=DesignField.objects.filter())
     answer_count = serializers.IntegerField(
@@ -15,6 +17,15 @@ class QuestionSerializer(serializers.ModelSerializer):
         model = Question
         fields = ['id', 'user', 'title', 'question_text',
                   'categories', 'answer_count', 'created_on', 'updated_on']
+
+
+class QuestionSerializer(serializers.ModelSerializer):
+    categories = DesignFieldSerializer(
+        many=True, queryset=DesignField.objects.filter())
+
+    class Meta:
+        model = Question
+        fields = ['user', 'title', 'question_text', 'categories', ]
 
     def create(self, validated_data):
         categories_data = []

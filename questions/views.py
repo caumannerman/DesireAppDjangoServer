@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from rest_framework.filters import SearchFilter, OrderingFilter
 
 from questions.models import Question
-from questions.serializers import QuestionSerializer
+from questions.serializers import QuestionListRetrieveSerializer, QuestionSerializer
 from core.permissions import OwnerPermission
 
 
@@ -20,9 +20,14 @@ class QuestionFilter(FilterSet):
 
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
-    serializer_class = QuestionSerializer
     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter,)
     filterset_class = QuestionFilter
     search_fields = ['title', 'question_text', ]
     ordering_fields = ['created_on', ]
     permission_classes = [OwnerPermission]
+
+    def get_serializer_class(self):
+        if self.action in ['list', 'retrieve']:
+            return QuestionListRetrieveSerializer
+        else:
+            return QuestionSerializer
