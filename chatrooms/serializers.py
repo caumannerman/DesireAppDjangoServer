@@ -12,7 +12,6 @@ class ChatRoomSerializer(serializers.ModelSerializer):
         model = ChatRoom
         fields = ['id', 'sender', 'recipient',
                   'latest_chat_message', 'created_on', 'updated_on', ]
-        extra_fields = ['latest_chat_message', ]
 
     def get_latest_chat_message(self, obj):
         try:
