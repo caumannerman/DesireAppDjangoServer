@@ -1,11 +1,14 @@
 from rest_framework import serializers
 
+from accounts.serializers import UserSerializer
 from chatrooms.models import ChatRoom
 from chatmessages.models import ChatMessage
 from chatmessages.serializers import ChatMessageSerializer
 
 
-class ChatRoomSerializer(serializers.ModelSerializer):
+class ChatRoomListRetrieveSerializer(serializers.ModelSerializer):
+    sender = UserSerializer()
+    recipient = UserSerializer()
     latest_chat_message = serializers.SerializerMethodField()
 
     class Meta:
@@ -21,3 +24,9 @@ class ChatRoomSerializer(serializers.ModelSerializer):
             return serializer.data
         except:
             return None
+
+
+class ChatRoomCreateUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatRoom
+        fields = ['sender', 'recipient', ]
