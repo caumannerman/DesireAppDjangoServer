@@ -8,7 +8,9 @@ __pycache__/
 
 media/
 
-static/
+static/*
+
+!static/.gitkeep
 
 .env
 
