@@ -26,19 +26,16 @@ if int(os.getenv('ENABLE_S3_BUCKET', 0)) == 1:
         'CacheControl': 'max-age=86400',
     }
     AWS_DEFAULT_ACL = 'public-read'
-    AWS_LOCATION = 'static'
-    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static')
-    ]
 
-    # 미디어 파일을 위한 스토리지 설정
-    DEFAULT_FILE_STORAGE = 'config.asset_storage.MediaStorage'
+    # ## 정적 파일
+    AWS_STATIC_LOCATION = 'static'
+    STATICFILES_STORAGE = 'core.settings.conf.storage_backends.StaticStorage'
+    STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN,
+                                     AWS_STATIC_LOCATION)
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
     # ## 미디어 파일을 위한 스토리지 설정 (프로젝트 내부 설정 파일 존재)
     AWS_PUBLIC_MEDIA_LOCATION = 'media/public'
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
     DEFAULT_FILE_STORAGE = 'core.settings.conf.storage_backends.PublicMediaStorage'
 
     AWS_PRIVATE_MEDIA_LOCATION = 'media/private'
