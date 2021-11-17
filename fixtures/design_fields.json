@@ -1,0 +1,44 @@
+[
+{
+    "model": "design_fields.designfield",
+    "pk": "17d40fbc-ca0f-48e9-bc08-d798745b57a6",
+    "fields": {
+        "name": "시각디자인"
+    }
+},
+{
+    "model": "design_fields.designfield",
+    "pk": "29618f96-024f-4392-acdc-f144361e7bc2",
+    "fields": {
+        "name": "툴 사용"
+    }
+},
+{
+    "model": "design_fields.designfield",
+    "pk": "bb83909d-e979-407e-bb49-8e89d027b272",
+    "fields": {
+        "name": "BI/BX"
+    }
+},
+{
+    "model": "design_fields.designfield",
+    "pk": "bea4aa11-eafa-4515-a604-c524f5f37679",
+    "fields": {
+        "name": "제품&산업"
+    }
+},
+{
+    "model": "design_fields.designfield",
+    "pk": "c4f65f8b-ae2b-4930-9111-36f440ad0189",
+    "fields": {
+        "name": "제품디자인"
+    }
+},
+{
+    "model": "design_fields.designfield",
+    "pk": "f8e21ade-1b1a-4e5a-b2fc-77ffcfed6939",
+    "fields": {
+        "name": "UI/UX"
+    }
+}
+]

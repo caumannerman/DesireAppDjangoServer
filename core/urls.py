@@ -18,7 +18,27 @@ from django.urls import path
 from django.urls.conf import include
 
 urlpatterns = [
+    # Django admin site
     path('admin/', admin.site.urls),
 
-    path('api-auth/', include('rest_framework.urls'))
+    # REST Framework
+    path('api-auth/', include('rest_framework.urls')),
+
+    # API
+    path('api/v1/auth/', include('auth.urls')),
+    path('api/v1/users/', include('accounts.urls')),
+
+    path('api/v1/questions/', include('questions.urls')),
+    path('api/v1/answers/', include('answers.urls')),
+    path('api/v1/answer-evaluations/', include('answer_evaluations.urls')),
+    path('api/v1/chat-rooms/', include('chatrooms.urls')),
+    path('api/v1/chat-messages/', include('chatmessages.urls')),
+    path('api/v1/uploaded-audios/', include('uploads.audios.urls')),
+    path('api/v1/uploaded-images/', include('uploads.images.urls')),
+    path('api/v1/uploaded-files/', include('uploads.files.urls')),
+    path('api/v1/uploaded-videos/', include('uploads.videos.urls')),
+
+    # # django-rest-auth
+    # path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    # path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
 ]

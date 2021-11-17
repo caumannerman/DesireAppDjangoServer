@@ -3,3 +3,13 @@ venv
 .vscode
 
 *.sqlite3
+
+__pycache__/
+
+media/
+
+static/
+
+.env
+
+!.env.template
