@@ -6,7 +6,7 @@ from core.settings.base import *
 
 load_dotenv()
 
-if int(os.getenv('ENABLE_S3_BUCKET', 0)) == True:
+if int(os.getenv('ENABLE_S3_BUCKET', 0)) == 1:
     # S3 설정을 위한 변수
     # AWS_xxx 의 변수들은 aws-S3, boto3 모듈을 위한 변수들이다.
 

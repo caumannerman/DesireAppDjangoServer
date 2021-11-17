@@ -118,7 +118,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if os.getenv('USE_EXTERNAL_DB'):
+if int(os.getenv('USE_EXTERNAL_DB', 0)) == 1:
     DATABASES = {
         'default': {
             'ENGINE': os.environ.get('SQL_ENGINE'),
