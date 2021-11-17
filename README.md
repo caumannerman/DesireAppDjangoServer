@@ -24,6 +24,10 @@
   (venv) $ pip3 install -r requirements.txt
   ```
 
+## Set secrets
+
+- `.env.template` 파일을 복사하여 `.env` 파일을 만들고, `KEY=` 뒤에 값을 알맞게 채워줍니다.
+
 ## Setup database
 
 - DB 스키마 등이 변경될 경우 서버 실행 전 다음 명령어를 한번씩 실행합니다.
@@ -31,6 +35,7 @@
   ```sh
   (venv) $ python3 manage.py makemigrations # Create migration files
   (venv) $ python3 manage.py migrate # Migrate
+  (venv) $ python3 manage.py loaddata ./fixtures/design_fields.json # Load initial design field data
   ```
 
 ## Create admin user

@@ -7,3 +7,9 @@ venv
 __pycache__/
 
 media/
+
+static/
+
+.env
+
+!.env.template
