@@ -35,6 +35,7 @@
   ```sh
   (venv) $ python3 manage.py makemigrations # Create migration files
   (venv) $ python3 manage.py migrate # Migrate
+  (venv) $ python3 manage.py loaddata ./fixtures/design_fields.json # Load initial design field data
   ```
 
 ## Create admin user
