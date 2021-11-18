@@ -4,19 +4,28 @@ from accounts.serializers import UserSerializer
 from design_fields.models import DesignField
 from design_fields.serializers import DesignFieldSerializer
 from questions.models import Question
+from uploads.audios.serializers import UploadedAudioSerializer
+from uploads.images.serializers import UploadedImageSerializer
+from uploads.files.serializers import UploadedFileSerializer
+from uploads.videos.serializers import UploadedVideoSerializer
 
 
 class QuestionListRetrieveSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     categories = DesignFieldSerializer(
         many=True, queryset=DesignField.objects.filter())
+    uploaded_audio = UploadedAudioSerializer()
+    uploaded_image = UploadedImageSerializer()
+    uploaded_file = UploadedFileSerializer()
+    uploaded_video = UploadedVideoSerializer()
     answer_count = serializers.IntegerField(
         source='answer_set.count', read_only=True)
 
     class Meta:
         model = Question
-        fields = ['id', 'user', 'title', 'question_text',
-                  'categories', 'answer_count', 'created_on', 'updated_on']
+        fields = ['id', 'user', 'title', 'question_text', 'categories',
+                  'uploaded_audio', 'uploaded_image', 'uploaded_file', 'uploaded_video',
+                  'answer_count', 'created_on', 'updated_on']
 
 
 class QuestionSerializer(serializers.ModelSerializer):
@@ -25,7 +34,8 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ['user', 'title', 'question_text', 'categories', ]
+        fields = ['user', 'title', 'question_text', 'categories',
+                  'uploaded_audio', 'uploaded_image', 'uploaded_file', 'uploaded_video', ]
 
     def create(self, validated_data):
         categories_data = []
