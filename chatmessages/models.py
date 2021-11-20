@@ -24,4 +24,4 @@ class ChatMessage(models.Model):
     )
 
     def __str__(self):
-        return '[User {} @ Chatroom {}]: {}'.format(self.user.email, self.chatroom, self.user.content)
+        return '[User {} @ Chatroom {}]: {}'.format(self.user.email, self.chatroom, self.content)
