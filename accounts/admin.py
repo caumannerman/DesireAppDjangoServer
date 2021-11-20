@@ -10,9 +10,8 @@ User = get_user_model()
 
 
 class UserAdmin(OrigUserAdmin):
-    list_display = ('id', 'email', 'acc_type', 'nickname',
-                    'first_name', 'last_name',)
-    search_fields = ('email', 'first_name', 'last_name',)
+    list_display = ('id', 'email', 'acc_type', 'nickname',)
+    search_fields = ('email', 'nickname',)
     list_filter = ('acc_type', 'is_active', 'is_superuser', 'is_staff',
                    'date_joined', 'last_login',)
     ordering = ('email',)
@@ -23,9 +22,9 @@ class UserAdmin(OrigUserAdmin):
         }),
     )
     fieldsets = (
-        (None, {'fields': ('email', 'password',
-         'nickname', 'acc_type', 'profile_image')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name')}),
+        (_('Account info'), {'fields': ('email', 'password')}),
+        (_('Personal info'), {
+         'fields': ('nickname', 'acc_type', 'profile_image')}),
         (_('Permissions'), {
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
         }),
