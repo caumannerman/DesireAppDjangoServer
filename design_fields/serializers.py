@@ -5,11 +5,11 @@ from design_fields.models import DesignField
 
 class DesignFieldSerializer(serializers.RelatedField):
     def to_representation(self, value):
-        return value.name
+        return str(value.name)
 
     def to_internal_value(self, data):
         try:
-            return DesignField.objects.get(name=data)
+            return str(DesignField.objects.get(name=data))
         except:
             raise serializers.ValidationError(
                 'Invalid design field name.', code=400)
